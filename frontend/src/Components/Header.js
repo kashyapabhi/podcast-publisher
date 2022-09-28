@@ -5,8 +5,8 @@ const Header = () => {
   return (
     <>
   {/* Navbar */}
-  <nav
-    className="navbar navbar-expand-lg navbar-dark "
+  <nav 
+    className="navbar navbar-expand-lg navbar-dark position-sticky top-0"
     style={{ backgroundColor: "#190a0a" }} >
     {/* Container wrapper */}
     <div className="container-fluid">
@@ -40,40 +40,15 @@ const Header = () => {
                 AddPodcast
             </NavLink>
           </li>
-          
-          Dropdown
-          <li className="nav-item dropdown">
-            <a
-              className="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-mdb-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Dropdown
-            </a>
-            {/* Dropdown menu */}
-            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li>
-                <a className="dropdown-item" href="#">
-                  Action
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Another action
-                </a>
-              </li>
-              <li>
-                <hr className="dropdown-divider" />
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Something else here
-                </a>
-              </li>
-            </ul>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/PodcastList">
+                PodcastList
+            </NavLink>
+            </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/PodcastManage">
+                PodcastManage
+            </NavLink>
           </li>
           
         </ul>

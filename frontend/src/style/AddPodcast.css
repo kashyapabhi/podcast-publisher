@@ -1,3 +1,41 @@
-.code{
-    background-color: black;
-}
+.gradient-custom {
+    background: -webkit-linear-gradient(left, #f90101ec);
+    }
+    
+    .card-custom {
+    border-top-right-radius: 10% 50%;
+    /* border-bottom-right-radius: 10% 50%; */
+    border-bottom-left-radius: 10% 50%;
+    background-color: #f8f9fa ;
+    background-color: rgb(255, 255, 255);
+    /* margin-left: 90px;
+    margin-top: 10px; */
+    }
+    
+    
+    .input-custom {
+    background-color: white ;
+    }
+    
+    .white-text {
+    color: hsl(52, 0%, 98%);
+    font-weight: 100 ;
+    font-size: 14px;
+    }
+    
+    .back-button {
+    background-color: hsl(52, 0%, 98%);
+    font-weight: 700;
+    color: black ;
+    margin-top: 50px ;
+    }
+
+    .welcome{
+        font-size: 27px;
+        color: black;
+        margin-top: 40px;
+        font-family:   'Times New Roman', Times, serif;
+        letter-spacing: 0.2rem;
+        margin-left: 9px;
+    }
+    

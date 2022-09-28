@@ -2,9 +2,10 @@ import React from "react";
 import "./../style/Signin.css";
 import Swal from "sweetalert2";
 import { Formik } from "formik";
-import { Link } from "react-router-dom";
+import { json, Link, useNavigate } from "react-router-dom";
 
 export default function Signin() {
+  const navigate = useNavigate()
   const loginSubmit = async (formdata, { resetForm }) => {
     console.log(formdata);
     // resetForm();
@@ -22,6 +23,11 @@ export default function Signin() {
         title: " success",
         text: "Login successfully",
       });
+
+
+      const data = await response.json()
+      sessionStorage.setItem("user",JSON.stringify(data))
+      navigate("/Addpodcast")
     } else if (response.status === 401) {
       Swal.fire({
         icon: "error",
@@ -41,7 +47,7 @@ export default function Signin() {
             initialValues={{ email: "", password: "" }}
             onSubmit={loginSubmit}
           >
-            {({ handleSubmit, values, handleChange }) => (
+            {({ handleSubmit, values, handleChange }) =>(
               <form onSubmit={handleSubmit}>
                 <h2>Sign in</h2>
                 <div className="inputBox">

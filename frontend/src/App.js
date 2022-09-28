@@ -7,6 +7,10 @@ import Home from './Components/Home';
 import Signin from './Components/Signin';
 import Signup from './Components/Signup'; 
 import AddPodcast from './Components/AddPodcast'; 
+import PodcastList from './Components/PodcastList'; 
+import PodcastManage from './Components/PodcastManage'; 
+import {Toaster} from 'react-hot-toast';
+
 
 
 
@@ -15,7 +19,8 @@ import AddPodcast from './Components/AddPodcast';
 function App() {
   return (
     <div>
-      {/* <Toaster position="top-center"/> */}
+
+      <Toaster position="top-center"/>
       <BrowserRouter>
       {/* <Link className="btn btn-link" to="/home">Home</Link> */}
       <Header/>
@@ -25,6 +30,8 @@ function App() {
         <Route element={<Signin/>} path='Signin'/>
         <Route element={<Signup/>} path='Signup'/>
         <Route element={<AddPodcast/>} path='AddPodcast'/>
+        <Route element={<PodcastList/>} path='PodcastList'/>
+        <Route element={<PodcastManage/>} path='PodcastManage'/>
 
       </Routes>
 

@@ -11,7 +11,7 @@ export default function Signup() {
       method: "POST",
       body: JSON.stringify(formdata),
       headers: {
-        "Content-type": "application/json",
+        "Content-Type": "application/json",
       },
     });
     if (response.status === 200 ){
@@ -21,7 +21,7 @@ export default function Signup() {
             text : "Signup successfully",
         });
     }
-    else if (Response.status === 401 ){
+    else if (response.status === 401 ){
         Swal.fire({
             icon:"error",
             title : "failed",
@@ -42,14 +42,14 @@ export default function Signup() {
               onSubmit={loginSubmit}
             >
               {({ handleSubmit, values, handleChange }) => (
-                <form onClick={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                   <h2>Create Your Account</h2>
                   <div className="content-box">
                     <input
                       type="text"
                       required
                       id="username"
-                      onClick={handleChange}
+                      onChange={handleChange}
                       value={values.username}
                     />
                     <span>Username</span>
@@ -60,7 +60,7 @@ export default function Signup() {
                       type="Email"
                       required
                       id="email"
-                      onClick={handleChange}
+                      onChange={handleChange}
                       value={values.email}
                     />
                     <span>Email</span>
@@ -71,7 +71,7 @@ export default function Signup() {
                       type="Password"
                       required
                       id="password"
-                      onClick={handleChange}
+                      onChange={handleChange}
                       value={values.password}
                     />
                     <span>Password</span>

@@ -1,6 +1,7 @@
 
 const express = require('express');
 const userRouter = require('./routers/userRouter');
+const PodcastRouter = require('./routers/PodcastRouter');
 const UtilRouter = require('./routers/Util');
 
 
@@ -16,9 +17,10 @@ app.use (cors({
     origin : ['http://localhost:3000']
 }))
 app.use('/user',userRouter);
-app.use('/Util',UtilRouter);
+app.use('/podcast',PodcastRouter);
+app.use('/util',UtilRouter);
 
-
+app.use(express.static('./static/uploads'));
 //routes
 
 app.listen(port, () => {

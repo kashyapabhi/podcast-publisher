@@ -1,68 +1,72 @@
-import React from 'react'
-import './../style/Home.css'
-import pic from './homeimg.webp'
-import kesh from './kesariya.webp'
+import React, { useEffect, useState } from "react";
+import "../style/Home.css";
+import pic from "./homeimg.webp";
+// import kesh from "./kesariya.webp";
 
 const Home = () => {
-  return (
-    <>
-    <div className='home-body'>
-        <div className='image'>
-          <img src={pic} alt="" className='img-body'/>
-          <div className='podcast'>
-            PODCAST
+  const [podcastList, setPodcastList] = useState([]);
+
+  const getDataFromBackend = async () => {
+    const response = await fetch("http://localhost:5000/podcast/getall");
+
+    const data = await response.json();
+    console.log(data);
+    setPodcastList(data);
+  };
+
+  const displayPodcast = () => {
+    return podcastList.map((podcast) => (
+      <div className="col-md-6">
+      <div className="container ">
+        <div className="card bg-dark text-white">
+          <div className="row">
+
+          <div className="col-4">
+            <div className="thumb" style={{backgroundImage : `url('http://localhost:5000/${podcast.image}')`}}></div>
+          </div>
+          <div className="col-8">
+            <div className="card-body">
+            <div className="">
+              <h3>{podcast.title}</h3>
+              {/* <h6>{podcast.createdBy.username}</h6> */}
+              <a href="#">
+                <button>Watch Now</button>
+              </a>
+            </div>
+            </div>
+          </div>
           </div>
         </div>
-        <div className="heading">
+      </div>
+      </div>
+    ));
+  };
+
+  useEffect(() => {
+    getDataFromBackend();
+  }, [])
+  
+
+  return (
+    <>
+      <div className="home-body">
+        <div className="image">
+          <div className="photo">
+            <img src={pic} alt="" className="img-body" />
+            <h1 className="paddi">PODCAST</h1>
+          </div>
+          {/* <div className='podcast'>
+          </div> */}
+        </div>
+        <div className="  container heading">
           <h2>PODCAST SERIES</h2>
         </div>
 
-
+        <div className="row">{displayPodcast()}</div>
         <hr />
-        <div className='main-card'>
-          <div className='totle-content'>
-            <div className="img-card">
-              <div className="main-img">
-
-              <div>
-              <img src={kesh} alt=""  className="set-img"/>
-
-              <span className="song-title"> Kesariya(From "Brahmastra"){'/n'}
-              Pritam,Arijit Singh,Amitabh Bhattacharya </span>
-              </div>
-
-              </div>
-
-
-            </div>
-            <div className="img-content">
-              <div className="song-name">
-
-
-              </div>
-            </div>
-
-
-
-          </div>
-
-        </div>
-    <hr />
-
-
-    
-       
-
-    </div>
-
-
-
-    
-
-    
+      </div>
     </>
+  );
+};
 
-    )
-}
-
-export default Home
+export default Home;

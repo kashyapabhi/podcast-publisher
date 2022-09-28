@@ -10,6 +10,7 @@ const Model = require('../models/PodcastModel');
 router.post('/add',(req,res) => {
     const formdata = req.body;
     console.log(formdata)
+    new Model(formdata).save()
     .then((result) => {
         console.log(result);
         res.json(result);
@@ -22,7 +23,7 @@ router.post('/add',(req,res) => {
 
 router.get('/getall', (req,res) => {
 
-    Model.find()  
+    Model.find({}).populate('createdBy')
     .then((result) => {
         console.log(result);
         res.json(result);
