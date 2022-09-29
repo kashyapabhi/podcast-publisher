@@ -49,6 +49,21 @@ router.get('/getbyemail/:email',(req,res) => {
     });
 })
 
+router.get('/getbyid/:id',(req,res) => {
+    console.log(req.params.id);
+
+    Model.findById(req.params.id)
+    .then((result) => {
+        console.log(result);
+        res.json(result);
+        
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+        
+    });
+})
+
 router.delete('/delete/:id', (req, res) => {
     Model.findByIdAndDelete(req.params.id)
     .then((result) => {

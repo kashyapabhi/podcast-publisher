@@ -10,7 +10,7 @@ const PodcastManage = () => {
 
     const getDataFromBackend = async () =>{
 
-        const response = await fetch('http://localhost:5000/user/getall');
+        const response = await fetch('http://localhost:5000/podcast/getall');
 
         const data = await response.json();
         console.log(data);
@@ -19,7 +19,7 @@ const PodcastManage = () => {
 
     const deleteUser = async (id) => {
         console.log(id);
-        const response = await fetch('http://localhost:5000/user/delete/'+id,{
+        const response = await fetch('http://localhost:5000/podcast/delete/'+id,{
             method : 'delete'
         })
         console.log(response.status);
@@ -80,27 +80,11 @@ const PodcastManage = () => {
     
 
   return (
-    <div className='container-fluid'>
+    <div className='container'>
         <h1 className='text-center'> MANAGE PODCAST </h1>
         <hr />
-        {/* <div className="row">
-            <div className="col-md">
         {displayUsers()};
-
-            </div>
-            {
-                showForm ?
-                <div className="col-md">
-                    <UpdateUser 
-                    updateFormdata = {updateFormdata}
-                    refreshData ={getDataFromBackend} 
-                    setShowForm={setshowForm}/>
-
-                </div>
-                :
-                ''
-            }
-        </div> */}
+        
     </div>
   )
 }
