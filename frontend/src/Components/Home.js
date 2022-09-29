@@ -16,41 +16,44 @@ const Home = () => {
 
   const displayPodcast = () => {
     return podcastList.map((podcast) => (
-      <div className="col-md-6">
-      <div className="container ">
-        <div className="card bg-dark text-white">
-          <div className="row">
-
-          <div className="col-4">
-            <div className="thumb" style={{backgroundImage : `url('http://localhost:5000/${podcast.image}')`}}></div>
-          </div>
-          <div className="col-8">
-            <div className="card-body">
-            <div className="">
-              <h3>{podcast.title}</h3>
-              {/* <h6>{podcast.createdBy.username}</h6> */}
-              <a href="#">
-                <button>Watch Now</button>
-              </a>
+      <div className="col-md-4">
+        <div className="container">
+          <div className="card bg-dark text-white  ml-8">
+            <div className="row">
+              <div className="col-4">
+                <div
+                  className="thumb"
+                  style={{
+                    backgroundImage: `url('http://localhost:5000/${podcast.image}')`,
+                  }}
+                ></div>
+              </div>
+              <div className="col-8">
+                <div className="card-body">
+                  <div className="">
+                    <h3>{podcast.title}</h3>
+                    {/* <h6>{podcast.createdBy.username}</h6> */}
+                    <a href="#">
+                      <button>Watch Now</button>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
-            </div>
-          </div>
           </div>
         </div>
-      </div>
       </div>
     ));
   };
 
   useEffect(() => {
     getDataFromBackend();
-  }, [])
-  
+  }, []);
 
   return (
     <>
       <div className="home-body">
-        <div className="image">
+        <div className="image  ml-8">
           <div className="photo">
             <img src={pic} alt="" className="img-body" />
             <h1 className="paddi">PODCAST</h1>

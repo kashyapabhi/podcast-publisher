@@ -53,18 +53,7 @@ const Header = () => {
           
         </ul>
         
-        {/* Icons */}
         <ul className="navbar-nav d-flex flex-row me-1">
-          <li className="nav-item me-3 me-lg-0">
-            <a className="nav-link" href="#">
-              <i className="fas fa-shopping-cart" />
-            </a>
-          </li>
-          <li className="nav-item me-3 me-lg-0">
-            <a className="nav-link" href="#">
-              <i className="fab fa-twitter" />
-            </a>
-          </li>
           <li className="nav-item">
             <NavLink className="nav-link" to="/Signin">
                 Sign in
@@ -72,7 +61,7 @@ const Header = () => {
           </li>
           <li className="nav-item">
             <NavLink className="nav-link" to="/Signup">
-                Sign up
+              Sign up
             </NavLink>
           </li>
         </ul>
